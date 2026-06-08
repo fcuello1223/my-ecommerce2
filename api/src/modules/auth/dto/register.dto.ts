@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   IsEmail,
   IsNotEmpty,
@@ -9,10 +10,18 @@ import {
 
 //Data Transfer Object for User Registration
 export class RegisterDto {
+  @ApiProperty({
+    description: 'User E-Mail Address',
+    example: 'john.doe@example.com',
+  })
   @IsEmail({}, { message: 'Please Enter a Valid E-Mail Address!' })
   @IsNotEmpty({ message: 'E-Mail Required!' })
   email!: string;
 
+  @ApiProperty({
+    description: 'User Password',
+    example: 'StrongP@ssword123',
+  })
   @IsString()
   @IsNotEmpty({ message: 'Password Required!' })
   @MinLength(8, { message: 'Password Must Be At Least 8 Characters Long!' })
@@ -25,10 +34,20 @@ export class RegisterDto {
   )
   password!: string;
 
+  @ApiProperty({
+    description: 'User First Name',
+    example: 'John',
+    required: false,
+  })
   @IsOptional()
   @IsString()
   firstName?: string;
 
+  @ApiProperty({
+    description: 'User Last Name',
+    example: 'Doe',
+    required: false,
+  })
   @IsOptional()
   @IsString()
   lastName?: string;

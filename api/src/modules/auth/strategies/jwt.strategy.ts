@@ -28,6 +28,7 @@ super({
         email: true,
         firstName: true,
         lastName: true,
+        role: true,
         createdAt: true,
         updatedAt: true,
         password: false,

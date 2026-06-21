@@ -7,6 +7,9 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UserModule } from './modules/users/user.module';
+import { CategoryModule } from './modules/category/category.module';
+import { CategoryController } from './modules/category/category.controller';
+import { CategoryService } from './modules/category/category.service';
 
 @Module({
   imports: [
@@ -14,9 +17,10 @@ import { UserModule } from './modules/users/user.module';
     AuthModule,
     ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     UserModule,
+    CategoryModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, CategoryController],
+  providers: [AppService, CategoryService],
 })
 
 export class AppModule {}

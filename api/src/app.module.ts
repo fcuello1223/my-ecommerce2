@@ -10,6 +10,7 @@ import { UserModule } from './modules/users/user.module';
 import { CategoryModule } from './modules/category/category.module';
 import { CategoryController } from './modules/category/category.controller';
 import { CategoryService } from './modules/category/category.service';
+import { ProductsModule } from './modules/products/products.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { CategoryService } from './modules/category/category.service';
     ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     UserModule,
     CategoryModule,
+    ProductsModule,
   ],
   controllers: [AppController, CategoryController],
   providers: [AppService, CategoryService],
